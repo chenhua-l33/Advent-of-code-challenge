@@ -17,20 +17,37 @@ class Safe {
         this.input = input;
     }
 
-    public void updateCurrentNumber(String nthInput){
+    public int updateCurrentNumber(String nthInput){
+        int formerNumber = currentNumber;
+        int dest;
         char first = nthInput.charAt(0);
         int num = Integer.parseInt(nthInput.substring(1));
-        for (int i = 0; i < num; i++){
-            if (first == 'L'){
-            currentNumber = ((currentNumber - 1) % 100 + 100) % 100;
+        if (first == 'L'){
+            dest = currentNumber - num;
+            currentNumber = ((currentNumber - num) % 100 + 100) % 100;
         }
         else {
-            currentNumber = (currentNumber + 1) % 100;
+            dest = currentNumber + num;
+            currentNumber = (currentNumber + num) % 100;
         }
-            if (currentNumber == 0){
-                password++;
-            }
+        if (dest >= 100){
+            if (formerNumber == 0) return dest/100;
+            return 1 + (dest - 100)/100;
         }
+        else if (dest <= 0){
+            if (formerNumber == 0) return (0 - dest)/100;
+            return 1 + (0 - dest)/100;
+        }
+        else if (currentNumber == 0){
+            return 1;
+        }
+        else {
+            return 0;
+        }
+    }
+
+    public void incrementPassword(String nthInput){
+        password += this.updateCurrentNumber(nthInput);
     }
 
     public int getCurrentNumber(){
@@ -53,7 +70,7 @@ class Safe {
         Safe safe = new Safe(input, 0 ,50);
         
         for (String line: input){
-            safe.updateCurrentNumber(line);
+            safe.incrementPassword(line);
         }
 
         System.out.println(safe.getPassword());
