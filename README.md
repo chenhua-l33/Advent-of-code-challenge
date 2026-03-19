@@ -14,10 +14,10 @@ I enjoy puzzles that make me think sideways, and AoC is exactly that kind of cha
 
 ## 🛠️ Languages Used (So Far)
 
-| Language | Why |
-|----------|-----|
-| 🐍 Python | Fast prototyping, great for math-heavy puzzles, `collections` and `itertools` are a gift from the gods |
-| ☕ Java | to strengthen my OOP |
+| Language |
+|----------|
+| 🐍 Python | 
+| ☕ Java | 
 
 ---
 
@@ -44,11 +44,11 @@ advent-of-code/
 
 | Day | Title | Stars |
 |-----|-------|-------|
-| 01  | Secret Entrance | ⭐⭐ 
-| 02  | Gift Shop | ⭐ |  
-| 03  | Lobby | ⭐ | 
+| 01  | Secret Entrance | ✅✅ |
+| 02  | Gift Shop | ✅✅ |  
+| 03  | Lobby | ✅ | 
 
-> ⭐ = Part 1 solved &nbsp;&nbsp; ⭐⭐ = Both parts solved &nbsp;&nbsp; 🔧 = In progress &nbsp;&nbsp; — = Not attempted
+> ✅ = Part 1 solved &nbsp;&nbsp; ✅✅ = Both parts solved &nbsp;&nbsp; 🔧 = In progress &nbsp;&nbsp; 
 
 ---
 

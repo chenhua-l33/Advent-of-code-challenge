@@ -16,17 +16,16 @@ class Solution:
         return ranges
     
     def is_invalid(self, n):
-        # 判断一个数是否是 invalid ID（某段数字重复两次）
+        # 判断一个数是否是 invalid ID（某段数字重复2-n次）
         str_n = str(n)
         len_n = len(str_n)
-        for i in range(2, n+1):
+        for i in range(1, len_n//2+1):
             if len_n % i != 0:
                 pass
             else:
                 slicing_number = len_n // i
-                parts = list(map(''.join, zip(*[iter(str_n)]*slicing_number)))
-                parts = set(parts)                    
-                if len(parts) == 1:
+                replicate_num = str_n[:i] * slicing_number                  
+                if replicate_num == str_n:
                     return True
     
     def find_invalid_in_range(self, start, end):
@@ -49,6 +48,7 @@ class Solution:
             invalid_ID = self.find_invalid_in_range(start,end)
             invalid_ids.extend(invalid_ID)
         
+        print(invalid_ids)
         return sum(invalid_ids)
             
             
