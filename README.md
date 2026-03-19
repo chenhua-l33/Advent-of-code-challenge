@@ -46,7 +46,7 @@ advent-of-code/
 |-----|-------|-------|
 | 01  | Secret Entrance | ✅✅ |
 | 02  | Gift Shop | ✅✅ |  
-| 03  | Lobby | ✅ | 
+| 03  | Lobby | ✅✅ | 
 
 > ✅ = Part 1 solved &nbsp;&nbsp; ✅✅ = Both parts solved &nbsp;&nbsp; 🔧 = In progress &nbsp;&nbsp; 
 
