@@ -1,14 +1,14 @@
 # 🎄 Advent of Code — Self-Paced Edition
 
-> *"It's not about finishing. It's about doing some coding every day.:)"*
+> *"Doing some coding every day.:)"*
 
-Welcome to my Advent of Code solution repository! This is my personal, self-paced journey through the AoC puzzle archives — no leaderboard pressure, just me, some coffee, and an unreasonable amount of enthusiasm for algorithmic puzzles.
+This is my personal, self-paced journey through the AoC puzzle archives *Made with ☕, 🎵, and the quiet satisfaction of a green checkmark.*
 
 ---
 
 ## 🙋 Why do the challenge
 
-I enjoy puzzles that make me think sideways, and AoC is exactly that kind of chaos. Lots of comments talking to myself in the code.
+A little odd rusty brain needs every day a bit of sharpening at least. The purpose is to make things work first(without LLM) and optimize them to cleaner code later.
 
 ---
 
@@ -47,6 +47,7 @@ advent-of-code/
 | 01  | Secret Entrance | ✅✅ |
 | 02  | Gift Shop | ✅✅ |  
 | 03  | Lobby | ✅✅ | 
+| 04  | Printing Department | ✅✅ | 
 
 > ✅ = Part 1 solved &nbsp;&nbsp; ✅✅ = Both parts solved &nbsp;&nbsp; 🔧 = In progress &nbsp;&nbsp; 
 
@@ -60,4 +61,3 @@ advent-of-code/
 
 ---
 
-*Made with ☕, 🎵, and the quiet satisfaction of a green checkmark.*

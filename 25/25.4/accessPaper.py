@@ -13,9 +13,12 @@ class Solution:
     def parse_inputs(self, input_str):
         # 解析输入，返回 list of row of indicators of empty place(.) or roll of paper(@)
         distribution = input_str.split("\n")
-        return distribution
+        result = []
+        for line in distribution:
+             result.append(list(line))
+        return result
     
-    def find_num_of_papers(self, distribution):
+    def find_num_of_papers_and_replace_them(self, distribution):
         # find num of accessible of paper
         n_accessible_rolls = 0
         len_grid = len(distribution[0])
@@ -27,42 +30,59 @@ class Solution:
                 if i == 0:
                     if (j == 0 or j == len_grid - 1):
                         # on the corners, skip
+                        distribution[i][j] = '.'
                         n_accessible_rolls += 1
                     else:
                         # upmost line
                         adjacent_things = distribution[i][j-1] + distribution[i][j+1] + distribution[i+1][j-1] + distribution[i+1][j] + distribution[i+1][j+1]
                         if adjacent_things.count('@') < 4:
+                            distribution[i][j] = '.'
                             n_accessible_rolls += 1
                 elif i == height_grid-1:
                     if (j == 0 or j == len_grid - 1):
                         # on the corners, skip
+                        distribution[i][j] = '.'
                         n_accessible_rolls += 1
                     else:
                         # downmost line
                         adjacent_things = distribution[i][j-1] + distribution[i][j+1] + distribution[i-1][j-1] + distribution[i-1][j] + distribution[i-1][j+1]
                         if adjacent_things.count('@') < 4:
+                            distribution[i][j] = '.'
                             n_accessible_rolls += 1
                 elif j == 0:
                     # leftmost line
                     adjacent_things = distribution[i][j+1] + distribution[i+1][j+1] + distribution[i+1][j] + distribution[i-1][j] + distribution[i-1][j+1]
                     if adjacent_things.count('@') < 4:
+                            distribution[i][j] = '.'
                             n_accessible_rolls += 1
                 elif j == len_grid - 1:
                     # rightmost line
                     adjacent_things = distribution[i][j-1] + distribution[i-1][j-1] + distribution[i-1][j] + distribution[i+1][j-1] + distribution[i+1][j]
                     if adjacent_things.count('@') < 4:
+                            distribution[i][j] = '.'
                             n_accessible_rolls += 1
                 else:
                     adjacent_things = distribution[i-1][j-1] + distribution[i-1][j] + distribution[i-1][j+1] + distribution[i][j-1] + distribution[i][j+1] + distribution[i+1][j-1] + distribution[i+1][j] + distribution[i+1][j+1]
                     if adjacent_things.count('@') < 4:
+                            distribution[i][j] = '.'
                             n_accessible_rolls += 1
-        return n_accessible_rolls
+        return n_accessible_rolls, distribution  # num of accessible rolls and the updated distribution(replaced)
+    
+    def replace_papers(self, last_replacement):
+        total_removed = 0
+        while True:
+            add_to_total, last_replacement = self.find_num_of_papers_and_replace_them(last_replacement)
+            if add_to_total == 0:
+                 break
+            total_removed += add_to_total
+        return total_removed
+              
 
     def solve(self, input_str):
         # 主逻辑：把所有范围的 加起来
         distribution = self.parse_inputs(input_str)
-        accessible_papers = self.find_num_of_papers(distribution)
-        return accessible_papers
+        removed_rolls = self.replace_papers(distribution)
+        return removed_rolls
             
 def main():
     # example input
