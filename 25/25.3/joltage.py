@@ -2,9 +2,9 @@
 # Invalidity: sequence of digits repeated twice
 
 # input: 
-# number
-# number,
-# ...,
+# number\n
+# number\n
+# ...\n
 # ...
 # output: sum of all joltages
 
